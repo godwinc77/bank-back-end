@@ -17,15 +17,15 @@
                 <img src="img/FB_IMG_1593483223797.jpg" alt="">
                 <div class="row">
                     <div id="profile-name">
-                        <p>Chris</p>
-                        <p>Cadillac</p>
+                        <p><%= data.firstname %></p>
+                        <p><%= data.lastname %></p>
                     </div>
                     
                     <div id="current-balance">
                         <h3>
                             CURRENT BALANCE :
                         </h3>
-                        <P> $240,720.60 </P>
+                        <P> $<%= data.balance %> </P>
                        
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="dashlist">
                         <div class="balance">
                             <h3>Current Balance</h3>
-                            <p style="color: white;"> $240,720 .60</p>
+                            <p style="color: white;"> $<%= data.balance %></p>
                         </div>
                         <div class="balance">
                             <h3>Income</h3>
@@ -201,28 +201,33 @@
                             <ul class="transferul">
                                 <div class="transferlist">
                                     <li class="content">Receptant Name</li>
-                                    <li><input class="test" type="text"></li>
+                                    <li><input class="test" type="text" name="Receptant Name"></li>
                                 </div>
                                 <div class="transferlist">
                                     <li class="content">Country</li>
-                                    <li><input class="test" type="text"></li>
+                                    <li><input class="test" type="text" name="country"></li>
                                 </div>
                                 <div class="transferlist">
                                     <li class="content">Bank</li>
-                                    <li><input class="test" type="text"></li>
+                                    <li><input class="test" type="text" name="bank"></li>
                                 </div>
                                 <div class="transferlist">
-                                    <li class="content">Account</li>
-                                    <li><input class="test"  type="text"></li>
+                                    <li class="content">Email</li>
+                                    <li><input class="test"  type="text" name="email"></li>
                                 </div>
                                 <div class="transferlist">
                                     <li class="content">Amount</li>
-                                    <li><input class="test" type="text"></li>
+                                    <li><input class="test" type="number" name="amount"></li>
                                 </div>
                                 <div class="transferlist">
                                     <li class="content">Pin</li>
-                                    <li><input class="test"  type="text"></li>
+                                    <li><input class="test"  type="password" name="password"></li>
                                 </div>
+                                <div class="transferlist">
+                                    <input id="transfer" type="button" value="Transfer" style="display: block;">
+                                </div>
+
+                            
                             </ul>
                     </div>
                 </div>
@@ -252,7 +257,8 @@
         
 
         
-       
+    
         <script src="js/profile.js"></script>
+        <script src="js/profileauth.js"></script>
     </body>
 </html>
