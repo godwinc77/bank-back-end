@@ -33,58 +33,34 @@ body{
     width: 100%;
     display: flex;
     flex-direction: row;
-    border: solid 2px black;
-    border: none;
 }
 .profileHead .row #profile-name{
     width: 40%;
     height: 30px;
-    display: flex;
-    flex-direction: row;
-    border: solid 2px black;
-    border: none;
+    margin-left: 10px;
     
 }
 .profileHead .row #profile-name p{
-    margin-top: 0%;
-    padding-left: 3%;
-    width: 20%;
     font-weight: 500;
-    border: solid 2px black;
     font-size: 150%;
     height: 50px;
-    border: none;
     color: white;
-    margin-left: 7%;
+    margin-top: 0px;
     
 }
 .profileHead  .row #current-balance{
-    border: solid 2px black;
-    margin-left: 5%;
     padding-left: 30%;
     width: 100%;
     height: 45px;
-    display: flex;
-    flex-direction: row;
-    border: none;
-
-
 }
-.profileHead  .row #current-balance h3{
-    font-size: 150%;
-    border: solid 2px black;
-    border: none;
-    color: white;
-    margin-top: 1%;
-    padding-left: 0%;
-}
+
 .profileHead  .row #current-balance p{
+    font-weight: 500;
+    
     font-size: 150%;
-    border: solid 2px black;
-    border: none;
     color: white;
     margin-left: 5%;
-    margin-top: 1%;
+    margin-top: 0px;
 }
 /* Navigation */
 nav{
@@ -98,11 +74,11 @@ nav{
     width: 20%;
     height: 400px;
     margin-top: 10px;
-    border-radius: 50px;
     text-decoration: none;
-    background-color: rgb(51, 0, 102);
     position: relative;
     margin-left: 10px;
+    background-image:linear-gradient( rgb(51, 0, 102),rgb(0, 102, 255),rgb(51, 0, 102));
+
 }
 .navlist ul{
     list-style: none;
@@ -110,10 +86,9 @@ nav{
     padding: 0px;
     height: 100%;
     margin: 0px;
-    background-color: rgb(51, 0, 102);
 }
 
-.navlist ul:hover{
+.navlist ul li:hover{
     background-color: white;
 }
 
@@ -130,8 +105,7 @@ nav{
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    background-color: rgb(26, 0, 51);
-    height: 20%;
+    height: 16%;
 }
 
 .navlist ul li:hover{
@@ -168,6 +142,8 @@ nav{
     border-radius: 10px;
     background-color: rgb(26, 0, 51);
     height: 480px;
+    overflow: scroll;
+    overflow-x: hidden;
 
 }
 .dashboard h2{
@@ -313,11 +289,12 @@ nav{
 
 .transition{
     border: solid 2px green;
-    height: 56%;
+    height: 400px;
     margin-top: 2%;
     border-radius: 10px;
     width: 100%;
     border: none;
+    
 }
 .transition h2{
     margin-top: 1%;
@@ -332,12 +309,12 @@ nav{
 }
 
 .transition ul{
-    border: solid 2px white;
     width: 96%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    border: none;
+    padding: 0px;
+
     
     
 }
@@ -345,8 +322,8 @@ nav{
     margin-top: 1%;
    border-radius: 10px;
    background-color: rgb(51, 0, 102);
-   width: 49%;
-   margin-left: -5%;
+   width: 48%;
+   margin-left: 1.5%;
 }
 .transition .time p{
     font-size: 70%;
@@ -360,6 +337,7 @@ nav{
     flex-direction: row;
     list-style: none;
     width: 100%;
+    
 }
 .transition .time .listli .word{
     padding-left: 1%;
@@ -401,8 +379,10 @@ nav{
     width: 96%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    padding: 0px;
     border: none;
+    justify-content: space-between;
+    margin-left: 10px;
     
 }
 .transfer .transferdiv .transferul .transferlist{
@@ -411,7 +391,6 @@ nav{
     background-color: rgb(51, 0, 102);
     height: 65px;
     width: 49%;
-    margin-left: -5%;
  }
 .transfer .transferdiv .transferul .content{
     margin-left: 1%;
@@ -424,6 +403,17 @@ nav{
     height: 20px;
     border-radius: 10px;
     background-color: rgb(217, 217, 217);
+}
+.transfer .transferdiv .transferul .transferbutton #transfer{
+    width: 100px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.transfer .transferdiv .transferul .transferbutton #transfer:hover{
+    cursor: pointer;
 }
 /* Transfer */
 /* Profile*/
@@ -456,15 +446,28 @@ nav{
     margin-left: -2%;
     width: 95%;
 }
+.managementdiv ul .managementlist:hover{
+    transition: 0.5s;
+    background-color: white;
+    cursor: pointer;
+
+}
 .managementdiv ul .managementlist li{
     width: 90%;
-    height: 40px;
+    height: 35px;
     font-size: 130%;
     border-radius: 7px;
     color: rgb(217, 217, 217);
     padding-left: 2%;
     padding-top: 1%;
+   
 
+}
+.managementdiv ul .managementlist li:hover{
+    color: rgb(51, 0, 102);
+    transition: 0.5s;
+    background-color: white;
+    cursor: pointer;
 }
 .managementdiv ul .managementlist .fa-angle-right{
     width: 3%;
@@ -476,3 +479,142 @@ nav{
     border-radius: 7px;
     color: rgb(217, 217, 217);
 }
+/* Profile edit*/
+.profil-edit{
+    height: 600px;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}
+.profil-edit #profile-pic{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.profil-edit #profile-pic h3{
+    color: white;
+    font-size: 30px;
+    
+}
+.profil-edit #profile-pic img{
+    width: 200px;
+    height: 200px;
+    border-radius: 300px;
+}
+.profil-edit #profile-pic input{
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+}
+.profil-edit #profile-pic input:hover{
+    cursor: pointer;
+}
+.profil-edit #profile-name-edit{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(51, 0, 102);
+    margin-top: 30px;
+    height: 200px;
+}
+.profil-edit #profile-name-edit h3{
+    color: white;
+    font-size: 30px;
+}
+.profil-edit #profile-name-edit #profile-name-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(26, 0, 51);
+    height: 60px;
+
+}
+.profil-edit #profile-name-edit #profile-name-button p{
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+.profil-edit #profile-name-edit #profile-name-button input{
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+}
+.profil-edit #profile-name-edit #profile-name-button input:hover{
+    cursor: pointer;
+}
+.profil-edit #submit-profile-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.profil-edit #submit-profile-name #profile-text{
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 500px;
+}
+.profil-edit #submit-profile-name #profile-submit{
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    position: absolute;
+    left: 1030px;
+    top: 500px;
+}
+#update-profile{
+    width: 100%;
+    height: 300px;
+}
+#update-profile h3{
+    color: white;
+    font-size: 30px;
+}
+#update-profile .update-profile-name{
+    display: flex;
+    width: 100%;
+    height:150px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    
+}
+#update-profile .update-profile-name .update-name{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 100px;
+    background-color: rgb(51, 0, 102);
+    margin-right: 10px;
+    border-radius: 10px;
+}
+#update-profile .update-profile-name .update-name p{
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+#update-profile .update-profile-name .update-name .update-new-name{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    justify-content: space-between;
+}
+#update-profile .update-profile-name .update-name .update-new-name p{
+    margin-top: 0px;
+}
+#update-profile .update-profile-name .update-name .update-new-name input{
+    width: 400px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+

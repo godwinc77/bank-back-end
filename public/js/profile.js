@@ -11,6 +11,11 @@ const transferclick = document.getElementById("transfer1")
 const transferList = document.getElementsByClassName("transfer")[0]
 const profileclick = document.getElementById("profile1")
 const profilelist = document.getElementsByClassName("managementdiv")[0]
+const edit_profile1 = document.getElementById("edit-profile1")
+const profile_edit = document.getElementsByClassName("profil-edit")[0]
+const profile_name = document.getElementById("profile-name")
+const update_profile = document.getElementById("update-profile")
+const update_submit = document.getElementById("update-submit")
 function siblingRadius(){
     var top_sib = this.previousElementSibling
     var bottom_sib = this.nextElementSibling
@@ -43,6 +48,8 @@ function openSocial(){
     closeTransaction()
     closeTransfer()
     closeProfile()
+    closeEditProfile()
+    closeUpdateProfileName()
 }
 
 function closeSocial(){
@@ -56,6 +63,8 @@ function openOverview(){
     closeTransaction()
     closeTransfer()
     closeProfile()
+    closeEditProfile()
+    closeUpdateProfileName()
 }
 function closeOverview(){
     quickTranscationView.style.display = "none"
@@ -68,6 +77,8 @@ function openTransaction(){
     closeSocial()
     closeTransfer()
     closeProfile()
+    closeEditProfile()
+    closeUpdateProfileName()
 }
 
 function closeTransaction(){
@@ -80,6 +91,8 @@ function openTransfer(){
     closeSocial()
     closeTransaction()
     closeProfile()
+    closeEditProfile()
+    closeUpdateProfileName()
 }
 
 function closeTransfer(){
@@ -91,12 +104,31 @@ function openProfile(){
     closeSocial()
     closeTransaction()
     closeTransfer()
+    closeEditProfile()
+    closeUpdateProfileName()
 
 }
 
 function closeProfile(){
     profilelist.style.display = "none"
 
+}
+function openEditProfile(){
+    profile_edit.style.display ="block"
+    closeProfile()
+    closeUpdateProfileName()
+
+}
+function closeEditProfile(){
+    profile_edit.style.display ="none"
+}
+function openUpdateProfileName(){
+    update_profile.style.display = "block"
+    closeEditProfile()
+
+}
+function closeUpdateProfileName(){
+    update_profile.style.display = "none"
 }
 
 
@@ -105,3 +137,6 @@ overview.addEventListener("click",openOverview)
 transactionlick.addEventListener("click",openTransaction)
 transferclick .addEventListener("click",openTransfer)
 profileclick.addEventListener("click",openProfile)
+edit_profile1.addEventListener("click",openEditProfile)
+profile_edit.addEventListener("click",openUpdateProfileName)
+

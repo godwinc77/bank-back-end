@@ -17,15 +17,11 @@
                 <img src="img/FB_IMG_1593483223797.jpg" alt="">
                 <div class="row">
                     <div id="profile-name">
-                        <p><%= data.firstname %></p>
-                        <p><%= data.lastname %></p>
+                        <p><%= data.firstname %> <%= data.lastname %></p>
                     </div>
                     
                     <div id="current-balance">
-                        <h3>
-                            CURRENT BALANCE :
-                        </h3>
-                        <P> $<%= data.balance %> </P>
+                        <P>  CURRENT BALANCE : $<%= data.balance %> </P>
                        
                     </div>
                 </div>
@@ -36,11 +32,11 @@
             <div class="navlist">
                 <ul>
                     <li id="overview1"> <span id="overview1">Overview</span></li>
-                    <li id="social1"> <span id="social1"> <i class="fa-solid fa-money-bill bank"></i> Social <i class="fa-solid fa-angle-right erase1"></i> </span> </li>
-                    <li id="transition1"> <span id="transition1"> <i class="fa-solid fa-money-bill-trend-up bank"></i> Transaction <i class="fa-solid fa-angle-right erase2"></i> </span> </li>
-                    <li id="transfer1"> <span id="transfer1"> <i class="fa-solid fa-money-bill-transfer bank"></i> Transfer   <i class="fa-solid fa-angle-right erase3"></i></span></i></li>
-                    <li id="profile1"> <span id="profile1"> <i class="fa-solid fa-user bank"></i> Profile <i class="fa-solid fa-angle-right erase4"></i> </span> </li>
-                    <li> <span> <i class="fa-solid fa-right-to-bracket bank"></i> Logout <i class="fa-solid fa-angle-right erase5"></i></span> </li>
+                    <li id="social1"> <span id="social1"> Social <i class="fa-solid fa-angle-right erase1"></i> </span> </li>
+                    <li id="transition1"> <span id="transition1"></i> Transaction <i class="fa-solid fa-angle-right erase2"></i> </span> </li>
+                    <li id="transfer1"> <span id="transfer1"></i> Transfer   <i class="fa-solid fa-angle-right erase3"></i></span></i></li>
+                    <li id="profile1"> <span id="profile1"></i> Profile <i class="fa-solid fa-angle-right erase4"></i> </span> </li>
+                    <li> <span> </i> Logout <i class="fa-solid fa-angle-right erase5"></i></span> </li>
                 </ul>
             </div>
            
@@ -54,11 +50,11 @@
                         </div>
                         <div class="balance">
                             <h3>Income</h3>
-                            <p style="color: rgb(62, 240, 62);"> $430,230 .00</p>
+                            <p style="color: rgb(62, 240, 62);">$<%= incoming %> </p>
                         </div>
                         <div class="balance">
                             <h3>Outcome</h3>
-                            <p style="color: red;"> -$189,509 .4</p>
+                            <p style="color: red;"> -$<%=outgoing %></p>
                         </div>
                     </div>
                 </div>
@@ -126,68 +122,22 @@
                         </h2>
                         <p>Recent Activities</p>
                         <ul>
+                            <% all_transfers.forEach((transfer)=> { %>
                             <div class="time">
                                 <div class="listli">
-                                    <li class="word">ITunes Gift Card</li>
-                                    <li class="num" style="color: rgb(62, 240, 62);">$400</lI>
-                                </div>
-                                <p>Today,12:45</p>
-                            </div>
-        
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Paypal Transfer</li>
-                                    <li class="num" style="color: rgb(62, 240, 62);">$800</li>
-                                </div>
-                                <p>April 3rd, 20:17</p>
-                            </div>
-        
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Wonder Pizza</li>
-                                    <li class="num" style="color: red;">-$500</li>
-                                </div>   
-                                <p>April 3rd, 13:27</p> 
-                            </div>
-        
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Noble Studio</li>
-                                    <li class="num" style="color: red;">-$650</li>
-                                </div>   
-                                <p>March 27rd, 10: 01</p> 
-                            </div>
-        
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Emma Wilson</li>
-                                    <li class="num" style="color: rgb(62, 240, 62);">$1000</li>
-                                </div>   
-                                <p>March 27rd, 08: 11</p> 
-                            </div>
-        
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Netflix</li>
-                                    <li class="num" style="color: red;">-$350</li>
-                                </div>   
-                                <p>March 26rd, 20: 31</p> 
-                            </div>
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Apple Music</li>
-                                    <li class="num" style="color: red;">-$850</li>
-                                </div>   
-                                <p>March 22rd, 09: 41</p> 
-                            </div>
-        
+                                    <% if (transfer.sender === data.email) { %> 
+                                        <li class="word"><%= transfer.receiver %></li>
+                                         <li class="num" style="color: red;"> -$<%= transfer.amount %></lI>
+                                     <% } else { %>
+                                        <li class="word"><%= transfer.sender %></li>
+                                        <li class="num" style="color: rgb(62, 240, 62);"> $<%= transfer.amount %></lI>
+                                    <% } %>
                             
-                            <div class="time">
-                                <div class="listli">
-                                    <li class="word">Lydia</li>
-                                    <li class="num" style="color: rgb(62, 240, 62);">$3000</li>
-                                </div>   
-                                <p>March 20rd, 17: 27</p> 
+                                </div>
+                                <p><%= transfer.timestamp %></p>
+                            </div>
+                            <% }) %>
+                             
                         </ul>
                     </div>
                 </div>
@@ -223,7 +173,7 @@
                                     <li class="content">Pin</li>
                                     <li><input class="test"  type="password" name="password"></li>
                                 </div>
-                                <div class="transferlist">
+                                <div class="transferbutton">
                                     <input id="transfer" type="button" value="Transfer" style="display: block;">
                                 </div>
 
@@ -240,15 +190,51 @@
                             <li><i class="fa-solid fa-arrow-rotate-right"></i> Change Password</li><i class="fa-solid fa-angle-right"></i>
                         </div>
                         <div class="managementlist">
-                            <li><i class="fa-solid fa-lock"></i> Change Pin</li><i class="fa-solid fa-angle-right"></i>
+                            <li id="edit-profile1"><i class="fa-solid fa-user-clock"></i> Edit Profile</li><i class="fa-solid fa-angle-right"></i>
                         </div>
                         <div class="managementlist">
-                            <li><i class="fa-solid fa-circle-question"></i> Reset Pin</li><i class="fa-solid fa-angle-right"></i>
+                            <li><i class="fa-solid fa-bell"></i> Notifications</li><i class="fa-solid fa-angle-right"></i>
                         </div>
                         <div class="managementlist">
                             <li><i class="fa-solid fa-fingerprint"></i> Manage Biometrics</li><i class="fa-solid fa-angle-right"></i></li>
                         </div>
                     </ul>
+                </div>
+                <div class="profil-edit" style="display: none;">
+                    <div id="profile-pic">
+                        <h3>Profile Picture</h3>
+                        <img src="img/FB_IMG_1593483223797.jpg" alt="">
+                        <input type="button" value="Change Profile">
+                    </div>
+                    <div id="profile-name-edit">
+                        <h3>Profile Name</h3>
+                        <div id="profile-name-button">
+                            <p><%= data.firstname %> <%= data.lastname %></p>
+                            <input id="profile-name" type="button" value="Edit Profile Name">
+                        </div>   
+                    </div>
+                    <div id="submit-profile-name">
+                    </div>
+                </div>
+                <div id="update-profile" style="display: none;">
+                    <h3>Edit Profile Name</h3>
+                    <div class="update-profile-name">
+                        <div class="update-name">
+                            <p>FirstName : <%= data.firstname %></p>
+                            <div class="update-new-name">
+                                <p>New FirstName:</p>
+                                <input type="text" class="text-name" name="firstname">
+                            </div>
+                        </div>
+                        <div class="update-name">
+                            <p>LastName : <%= data.lastname %></p>
+                            <div class="update-new-name">
+                                <p>New LastName:</p>
+                                <input type="text" class="text-name" name="lastname">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="update-submit"> Submit</button>
                 </div>
 
             </div>
