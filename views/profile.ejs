@@ -204,7 +204,7 @@
                     <div id="profile-pic">
                         <h3>Profile Picture</h3>
                         <img src="img/FB_IMG_1593483223797.jpg" alt="">
-                        <input type="button" value="Change Profile">
+                        <input id="open-modal" type="button" value="Open Modal">
                     </div>
                     <div id="profile-name-edit">
                         <h3>Profile Name</h3>
@@ -240,7 +240,15 @@
             </div>
         </nav>
         
-        
+        <div class="modal-bg">
+            <div class="modal">
+                <span id="cancel-upload">x</span>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <input type="file">
+                    <input id="upload" type="submit" value="Upload"> 
+                </form>
+            </div>
+        </div>
 
         
     

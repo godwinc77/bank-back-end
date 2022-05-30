@@ -21,7 +21,7 @@ async function submit_update_name(){
     for (let i in text_update){
         data.append(text_update[i].name, text_update[i].value)
     }
-    var request = await fetch("profileNameUpdate",{
+    var request = await fetch("nameupdate",{
         method: "post",
         body: data
     })

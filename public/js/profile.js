@@ -16,6 +16,9 @@ const profile_edit = document.getElementsByClassName("profil-edit")[0]
 const profile_name = document.getElementById("profile-name-view")
 const update_profile = document.getElementById("update-profile")
 const update_submit = document.getElementById("update-submit")
+const open_modal = document.getElementById("open-modal")
+const modal_bg = document.getElementsByClassName("modal-bg")[0]
+const cancel_upload = document.getElementById("cancel-upload")
 function siblingRadius(){
     var top_sib = this.previousElementSibling
     var bottom_sib = this.nextElementSibling
@@ -129,7 +132,12 @@ function openUpdateProfileName(){
 function closeUpdateProfileName(){
     update_profile.style.display = "none"
 }
-
+function openmodal(){
+    modal_bg.style.visibility = "visible"
+}
+function closemodal(){
+    modal_bg.style.visibility = "hidden"
+}
 
 socialclick.addEventListener("click",openSocial)
 overview.addEventListener("click",openOverview)
@@ -138,4 +146,7 @@ transferclick .addEventListener("click",openTransfer)
 profileclick.addEventListener("click",openProfile)
 edit_profile1.addEventListener("click",openEditProfile)
 profile_name.addEventListener("click",openUpdateProfileName)
+open_modal.addEventListener("click",openmodal)
+cancel_upload.addEventListener("click",closemodal)
+
 

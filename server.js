@@ -165,7 +165,7 @@ app.post("/transfer", async function(req, res){
     }
 })
 
-app.post("/profileNameUpdate", async function(req, res){
+app.post("/nameupdate", async function(req, res){
     var nameUpdate =req.body
     console.log(nameUpdate)
     var empty_field =[]
