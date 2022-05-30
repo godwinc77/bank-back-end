@@ -13,7 +13,7 @@ const profileclick = document.getElementById("profile1")
 const profilelist = document.getElementsByClassName("managementdiv")[0]
 const edit_profile1 = document.getElementById("edit-profile1")
 const profile_edit = document.getElementsByClassName("profil-edit")[0]
-const profile_name = document.getElementById("profile-name")
+const profile_name = document.getElementById("profile-name-view")
 const update_profile = document.getElementById("update-profile")
 const update_submit = document.getElementById("update-submit")
 function siblingRadius(){
@@ -35,7 +35,6 @@ function reverseSiblingRadius(){
         bottom_sib.style.borderTopRightRadius = "0px"
 }
 for (let i in nav_list.children){
-    console.log(nav_list.children[i])
     if (typeof nav_list.children[i] === "object"){
         nav_list.children[i].addEventListener("mouseover", siblingRadius)
         nav_list.children[i].addEventListener("mouseout", reverseSiblingRadius)
@@ -138,5 +137,5 @@ transactionlick.addEventListener("click",openTransaction)
 transferclick .addEventListener("click",openTransfer)
 profileclick.addEventListener("click",openProfile)
 edit_profile1.addEventListener("click",openEditProfile)
-profile_edit.addEventListener("click",openUpdateProfileName)
+profile_name.addEventListener("click",openUpdateProfileName)
 

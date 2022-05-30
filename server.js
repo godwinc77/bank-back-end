@@ -195,11 +195,6 @@ app.post("/profileNameUpdate", async function(req, res){
         profile.firstname = nameUpdate.firstname
         profile.lastname = nameUpdate.lastname
         profile.save()
-        var new_name = new profileNameUpdate({
-            firstname:nameUpdate.firstname,
-            lastname:nameUpdate.lastname
-        })
-        new_name.save()
         res.send("name update successful")
         }    
 })
