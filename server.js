@@ -1,23 +1,20 @@
 const express = require("express")
-const { append, format } = require("express/lib/response")
+const { append, format, type } = require("express/lib/response")
 const app = express()
 const body_parser = require("body-parser")
-const multer = require("multer")
-const res = require("express/lib/response")
-const upload = multer()
 const mongoose = require ("mongoose")
 var session = require("express-session")
-const mongoStore = require("connect-mongo")
 const MongoStore = require("connect-mongo")
-
+const fileupload = require("express-fileupload")
+const path = require("path")
 mongoose.connect('mongodb://localhost/my_db')
 
 //set viw engine//
 app.set("view engine", "ejs")
 app.use(express.static("public"))
 app.use(body_parser.json())
-app.use(upload.array())
 app.use(body_parser.urlencoded({extended:true}))
+app.use(fileupload())
 app.use (session({
     secret: "gfjdjcjkdjjcjc",
     resave:true,
@@ -35,7 +32,8 @@ var userSchma = mongoose.Schema({
     email: { type:String, unique:true},
     username: { type:String, unique:true},
     password:String,
-    balance: Number
+    balance: Number,
+    avatar:{type:String, default:"\\img\\FB_IMG_1593483223797.jpg"} 
 })
  var user = mongoose.model("user",userSchma)
 
@@ -197,6 +195,16 @@ app.post("/nameupdate", async function(req, res){
         profile.save()
         res.send("name update successful")
         }    
+})
+app.post("/upload", function(req,res){
+    var file = req.files.avatar
+    console.log(file)
+    res.send("uploaded")
+})
+
+app.get("/test/:file", function(req, res){
+    var file = req.params.file
+    res.sendFile(__dirname + "\\public\\img\\" +file)
 })
 
 app.listen(3000)

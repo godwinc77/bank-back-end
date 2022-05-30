@@ -14,7 +14,7 @@
         </div> -->
         <section class="profile">
             <div class="profileHead">
-                <img src="img/FB_IMG_1593483223797.jpg" alt="">
+                <img src="<%= data.avatar %>" alt="">
                 <div class="row">
                     <div id="profile-name">
                         <p><%= data.firstname %> <%= data.lastname %></p>
@@ -203,7 +203,7 @@
                 <div class="profil-edit" style="display: none;">
                     <div id="profile-pic">
                         <h3>Profile Picture</h3>
-                        <img src="img/FB_IMG_1593483223797.jpg" alt="">
+                        <img src="<%= data.avatar %>" alt="">
                         <input id="open-modal" type="button" value="Open Modal">
                     </div>
                     <div id="profile-name-edit">
@@ -243,8 +243,8 @@
         <div class="modal-bg">
             <div class="modal">
                 <span id="cancel-upload">x</span>
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <input type="file">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="avatar">
                     <input id="upload" type="submit" value="Upload"> 
                 </form>
             </div>
