@@ -19,6 +19,9 @@ const update_submit = document.getElementById("update-submit")
 const open_modal = document.getElementById("open-modal")
 const modal_bg = document.getElementsByClassName("modal-bg")[0]
 const cancel_upload = document.getElementById("cancel-upload")
+const logout_click = document.getElementById("logout1")
+const logout_modal = document.getElementsByClassName("logout-modal")[0]
+const logout_button2 = document.getElementById("logout-button2")
 function siblingRadius(){
     var top_sib = this.previousElementSibling
     var bottom_sib = this.nextElementSibling
@@ -138,6 +141,12 @@ function openmodal(){
 function closemodal(){
     modal_bg.style.visibility = "hidden"
 }
+function openlogout(){
+    logout_modal.style.visibility = "visible"
+}
+function closelogout(){
+    logout_modal.style.visibility = "hidden"
+}
 
 socialclick.addEventListener("click",openSocial)
 overview.addEventListener("click",openOverview)
@@ -148,5 +157,7 @@ edit_profile1.addEventListener("click",openEditProfile)
 profile_name.addEventListener("click",openUpdateProfileName)
 open_modal.addEventListener("click",openmodal)
 cancel_upload.addEventListener("click",closemodal)
+logout_click.addEventListener("click",openlogout)
+logout_button2.addEventListener("click",closelogout)
 
 

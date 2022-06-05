@@ -196,15 +196,38 @@ app.post("/nameupdate", async function(req, res){
         res.send("name update successful")
         }    
 })
-app.post("/upload", function(req,res){
+app.get("/logout",function(req, res){
+    var logout = req.body
+    var logout_user = await user.findOne({email: req.session.user.email})
+    var logout_input = logout_user === null
+    var logout_info = logout_input
+    res.send("logout successful")
+})
+
+app.post("/upload", async function(req,res){
+    var profile = await user.findOne({email:req.session.user.email})
+    var user_id = profile.id
     var file = req.files.avatar
-    console.log(file)
-    res.send("uploaded")
+    var ext = file.mimetype
+    var slash = ext.indexOf("/")
+    ext = ext.slice(slash + 1 ,)
+    var location = __dirname + "/uploads/" + user_id +"." + ext
+    console.log(location)
+    file.mv(location)
+    profile.avatar = "/uploads/" + user_id +"." + ext
+    console.log(profile)
+    profile.save()
+    res.redirect("/profile")
+})
+
+app.get("/uploads/:id",function(req, res){
+    res.sendFile(__dirname + "/uploads/" + req.params.id)
 })
 
 app.get("/test/:file", function(req, res){
     var file = req.params.file
     res.sendFile(__dirname + "\\public\\img\\" +file)
 })
+
 
 app.listen(3000)
