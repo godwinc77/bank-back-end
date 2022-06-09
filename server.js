@@ -69,9 +69,8 @@ app.get("/profile", async function(req,res){
         for (let i in sent_transfers){
             outgoing += sent_transfers[i].amount
         } 
-        res.render("profile",{data:data, all_transfers:all_transfers,incoming:incoming,outgoing:outgoing})
-        
 
+        res.render("profile",{data:data, all_transfers:all_transfers,incoming:incoming,outgoing:outgoing})
     }
     else{
         res.send("you must login")
@@ -196,11 +195,14 @@ app.post("/nameupdate", async function(req, res){
         res.send("name update successful")
         }    
 })
-app.get("/logout",function(req, res){
+app.post("/logout", async function(req, res){
     var logout = req.body
     var logout_user = await user.findOne({email: req.session.user.email})
-    var logout_input = logout_user === null
-    var logout_info = logout_input
+    for(let i in logout){
+        if(logout_user != null ){
+            logout[i]=== null 
+        }
+    }
     res.send("logout successful")
 })
 

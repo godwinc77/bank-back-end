@@ -31,17 +31,19 @@ async function submit_update_name(){
 }
 async function logout_profile(){
     var data = new FormData()
-    data.append(logout_button1.name, logout_button1.value)
+    for (let i in logout_button1){
+        data.append(logout_button1.name, logout_button1.value)
+    }
     var request= await fetch ("logout",{
         method: "post",
         body: data 
     })
     var response = await request.text()
-    console.log(response)
+    
     if (response === "logout successful"){
-        window.location.href = "index"
+        window.location.href = "/"
     }
-   
+    console.log(response)
     
 }
 transfer.addEventListener("click", submit_transfer)

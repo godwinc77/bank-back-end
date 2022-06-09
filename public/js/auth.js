@@ -10,10 +10,7 @@ async function register(){
     for (let i in signup_list){
         data.append(signup_list[i].name, signup_list[i].value)
     }
-
-
-
-    var request = await fetch("register", {
+    var request = await fetch("register",{
         method:"post",
         body: data
     })
